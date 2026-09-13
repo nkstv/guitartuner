@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="Un accordeur rapide, précis et gratuit dans ton navigateur." />
   <meta name="twitter:image" content="https://guitar-tuner-fast.com/assets/og-image-fr.png" />
   <title>Accorde Guitare — Accordeur de Guitare Gratuit & Précis</title>
-  <link rel="stylesheet" href="/styles.css?v=8" />
+  <link rel="stylesheet" href="/styles.css?v=9" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -44,9 +44,32 @@
       <span class="brand-mark" aria-hidden="true">A</span>
       <span>Accorde Guitare</span>
     </a>
+
+    <nav class="desktop-nav" aria-label="Navigation principale">
+      <a href="/fr/#tuner" class="nav-tuner">Accordeur</a>
+      <a href="/fr/comment-accorder-guitare-acoustique/">Acoustique</a>
+      <a href="/fr/comment-accorder-guitare-electrique/">Électrique</a>
+      <a href="/fr/comment-accorder-basse/">Basse</a>
+      <a href="/fr/comment-accorder-ukulele/">Ukulélé</a>
+    </nav>
+
     <div class="header-actions">
       <a class="lang-link" href="/" hreflang="en" lang="en">EN</a>
-      <a class="header-link" href="#instrument">Accorder maintenant <span aria-hidden="true">↘</span></a>
+      <a class="header-link" href="/fr/#instrument">Accorder <span aria-hidden="true">↘</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-site-menu" aria-label="Ouvrir le menu" data-open-label="Ouvrir le menu" data-close-label="Fermer le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-site-menu" hidden>
+      <nav aria-label="Navigation principale">
+        <a href="/fr/#tuner"><span>00</span><strong>Accordeur</strong></a>
+        <a href="/fr/comment-accorder-guitare-acoustique/"><span>01</span><strong>Comment accorder une guitare acoustique</strong></a>
+        <a href="/fr/comment-accorder-guitare-electrique/"><span>02</span><strong>Comment accorder une guitare électrique</strong></a>
+        <a href="/fr/comment-accorder-basse/"><span>03</span><strong>Comment accorder une basse</strong></a>
+        <a href="/fr/comment-accorder-ukulele/"><span>04</span><strong>Comment accorder un ukulélé</strong></a>
+      </nav>
+      <a class="mobile-menu-cta" href="/fr/#instrument">Accorder <span aria-hidden="true">↘</span></a>
     </div>
   </header>
 
@@ -209,5 +232,6 @@
 
   <noscript><div class="noscript">JavaScript est nécessaire pour utiliser l'accordeur audio.</div></noscript>
   <script src="/fr/app.js?v=6" defer></script>
+  <script src="/menu.js?v=1" defer></script>
 </body>
 </html>
