@@ -153,7 +153,7 @@
     els.visualStrings.classList.add(`strings-${count}`);
     els.visualStrings.innerHTML = notes.map((note,index)=>{
       const pos = count === 1 ? 50 : 22 + (56 * index / (count - 1));
-      return `<span class="stage-string ${index===selectedString?'is-selected':''}" data-index="${index}" style="--string-x:${pos}%"><i>${note}</i></span>`;
+      return `<span class="stage-string ${index===selectedString?'is-selected':''}" data-index="${index}" data-selected="${index===selectedString?'true':'false'}" style="--string-x:${pos}%"><i>${note}</i></span>`;
     }).join('');
   }
 
@@ -171,7 +171,9 @@
     });
     if(els.visualStrings){
       els.visualStrings.querySelectorAll('.stage-string').forEach((stringEl,index)=>{
-        stringEl.classList.toggle('is-selected',index===selectedString);
+        const active = index===selectedString;
+        stringEl.classList.toggle('is-selected',active);
+        stringEl.setAttribute('data-selected', active ? 'true' : 'false');
       });
     }
   }
@@ -179,19 +181,24 @@
   function scrollToTuner(){
     const target = els.tunerSection;
     if(!target) return;
-    const getTargetY = () => Math.max(0, target.getBoundingClientRect().top + window.scrollY - 18);
-    // Wait for the instrument state/render to finish, then scroll explicitly.
-    requestAnimationFrame(()=>{
-      requestAnimationFrame(()=>{
-        const y = getTargetY();
-        try{ window.scrollTo({top:y,behavior:'smooth'}); }
-        catch(e){ window.scrollTo(0,y); }
-        // Fallback for browsers/embedded views that ignore smooth scroll.
-        setTimeout(()=>{
-          const remaining = Math.abs(target.getBoundingClientRect().top - 18);
-          if(remaining > 90) window.scrollTo(0,getTargetY());
-        },420);
-      });
+
+    // Always force a fresh scroll, even when the URL already ends in #tuner/#accordeur.
+    const run = () => {
+      try{ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      catch(e){ target.scrollIntoView(true); }
+    };
+
+    requestAnimationFrame(() => {
+      run();
+      // A second pass after layout/render makes the movement reliable on mobile/Safari.
+      setTimeout(run, 90);
+      setTimeout(() => {
+        const top = target.getBoundingClientRect().top;
+        if(Math.abs(top) > 100){
+          const y = Math.max(0, window.scrollY + top - 18);
+          window.scrollTo(0, y);
+        }
+      }, 520);
     });
   }
 
@@ -332,9 +339,12 @@
   }
 
   document.querySelectorAll('.instrument-card').forEach(btn=>{
-    btn.addEventListener('click',()=>{
+    btn.addEventListener('click',(event)=>{
+      event.preventDefault();
       selectInstrument(btn.dataset.instrument);
       scrollToTuner();
+      const hash = els.tunerSection?.id ? `#${els.tunerSection.id}` : '#tuner';
+      try{ history.replaceState(null,'',hash); }catch(e){}
     });
   });
   document.querySelectorAll('.mode-button').forEach(btn=>btn.addEventListener('click',()=>selectMode(btn.dataset.mode)));

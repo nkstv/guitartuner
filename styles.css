@@ -92,3 +92,129 @@ footer{max-width:1420px;margin:0 auto;padding:38px 32px 50px;display:grid;grid-t
 .string-button.is-selected{outline:1px solid rgba(217,179,108,.18);outline-offset:2px}
 .selection-feedback{display:flex}
 @media(max-width:640px){.stage-string i{bottom:-24px;font-size:10px}.selection-feedback{font-size:11px;gap:7px;padding:9px 11px}.selection-feedback strong{font-size:17px}}
+
+
+/* v6 — clearer selected string + robust interaction feedback */
+.stage-centerline{isolation:isolate}
+.stage-string{z-index:2;background:rgba(244,239,229,.22)!important;box-shadow:none!important}
+.stage-string.is-selected,
+.stage-string[data-selected="true"]{
+  z-index:6!important;
+  width:4px!important;
+  min-width:4px!important;
+  background:#f1d79f!important;
+  box-shadow:0 0 0 1px rgba(217,179,108,.34),0 0 12px 3px rgba(217,179,108,.46),0 0 28px 8px rgba(217,179,108,.18)!important;
+  opacity:1!important;
+}
+.stage-string.is-selected:before,
+.stage-string[data-selected="true"]:before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-7px;
+  width:10px;
+  height:10px;
+  transform:translateX(-50%);
+  border-radius:999px;
+  background:#f1d79f;
+  box-shadow:0 0 16px rgba(217,179,108,.8);
+}
+.stage-string.is-selected:after,
+.stage-string[data-selected="true"]:after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-7px;
+  width:10px;
+  height:10px;
+  transform:translateX(-50%);
+  border-radius:999px;
+  background:#f1d79f;
+  box-shadow:0 0 16px rgba(217,179,108,.8);
+}
+.stage-string.is-selected i,
+.stage-string[data-selected="true"] i{
+  color:#f1d79f!important;
+  font-weight:700;
+  text-shadow:0 0 12px rgba(217,179,108,.4);
+}
+.selection-feedback{
+  display:flex!important;
+  align-items:baseline;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:7px 12px!important;
+  margin-top:18px;
+}
+.selection-feedback>span,.selection-feedback>strong,.selection-feedback>em{display:inline-block}
+.selection-feedback>span{margin-right:2px}
+.selection-feedback>strong{margin:0 2px}
+.selection-feedback>em{margin-left:2px}
+.instrument-card{cursor:pointer}
+#tuner{scroll-margin-top:18px}
+@media(max-width:640px){#tuner{scroll-margin-top:10px}.stage-string.is-selected,.stage-string[data-selected="true"]{width:3px!important;min-width:3px!important}}
+
+/* v7 — tighter rhythm + stronger premium interactions */
+@media (min-width:1001px){
+  .hero{min-height:650px}
+  .hero-copy{padding:78px 0 88px}
+  .instrument-section,.tuner-section,.info-section{padding:92px 0}
+  .section-heading{margin-bottom:40px}
+  .tuner-topline{margin-bottom:34px}
+  .tuner-layout{grid-template-columns:minmax(0,1.42fr) minmax(330px,.58fr);gap:16px}
+  .strings-panel{padding:38px}
+}
+
+.hero-text{
+  font-size:19px;
+  line-height:1.72;
+  color:#b3afa6;
+}
+
+.primary-button{
+  padding:17px 26px;
+  min-height:54px;
+  background:#f7f2e8;
+  box-shadow:0 10px 30px rgba(0,0,0,.22),0 0 0 1px rgba(255,255,255,.06);
+  transition:transform .25s ease,background .25s ease,box-shadow .25s ease;
+}
+.primary-button:hover{
+  transform:translateY(-3px);
+  background:#fff;
+  box-shadow:0 16px 38px rgba(0,0,0,.3),0 0 0 1px rgba(217,179,108,.22);
+}
+.primary-button span{transition:transform .25s ease}
+.primary-button:hover span{transform:translateY(2px)}
+
+.instrument-card{
+  transition:transform .28s ease,border-color .28s ease,background .28s ease,box-shadow .28s ease;
+}
+.instrument-card .instrument-icon{
+  transition:transform .28s ease,filter .28s ease;
+}
+.instrument-card:not(.is-active):hover{
+  transform:translateY(-7px);
+  background:#1d1c19;
+  border-color:rgba(217,179,108,.48);
+  box-shadow:0 22px 55px rgba(0,0,0,.26),0 0 0 1px rgba(217,179,108,.04) inset;
+}
+.instrument-card:hover .instrument-icon{
+  transform:translateY(-4px) scale(1.025);
+}
+.instrument-card:not(.is-active):hover strong{color:#f3dfb6}
+.instrument-card.is-active:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 45px rgba(0,0,0,.18);
+}
+
+@media(max-width:1000px){
+  .instrument-section,.tuner-section,.info-section{padding:84px 0}
+}
+@media(max-width:640px){
+  .hero-copy{padding:68px 0 72px}
+  .hero-text{font-size:17px;line-height:1.65}
+  .instrument-section,.tuner-section,.info-section{padding:64px 0}
+  .primary-button{padding:16px 23px;min-height:52px}
+  .instrument-card:not(.is-active):hover,.instrument-card.is-active:hover{transform:none;box-shadow:none}
+  .instrument-card:hover .instrument-icon{transform:none}
+}

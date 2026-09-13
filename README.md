@@ -28,3 +28,9 @@
 
 ## Local testing
 Reference tones work when opening `index.html` directly, but microphone access is more reliable through a local HTTPS/server environment.
+
+
+## v6 interaction fixes
+- Instrument cards always scroll to the tuner, even if the URL hash already points there.
+- The selected physical string is highlighted in gold on the central neck.
+- Selection feedback spacing is corrected.
