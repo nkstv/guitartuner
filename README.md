@@ -34,3 +34,7 @@ Reference tones work when opening `index.html` directly, but microphone access i
 - Instrument cards always scroll to the tuner, even if the URL hash already points there.
 - The selected physical string is highlighted in gold on the central neck.
 - Selection feedback spacing is corrected.
+
+
+## Tuning guides
+Added 4 English guides and 4 French equivalents, all cross-linked and included in sitemap.xml.
