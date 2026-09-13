@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#11110f" />
+  <meta name="description" content="Free online guitar tuner for acoustic guitar, electric guitar, bass and ukulele. Tune by ear or automatically with your microphone." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://guitar-tuner-fast.com/" />
+  <link rel="alternate" hreflang="en" href="https://guitar-tuner-fast.com/" />
+  <link rel="alternate" hreflang="fr" href="https://guitar-tuner-fast.com/fr/" />
+  <link rel="alternate" hreflang="x-default" href="https://guitar-tuner-fast.com/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="fr_FR" />
+  <meta property="og:title" content="Guitar Tuner Fast — Free Online Tuner" />
+  <meta property="og:description" content="Tune your guitar, bass or ukulele by ear or automatically with your microphone." />
+  <meta property="og:url" content="https://guitar-tuner-fast.com/" />
+  <meta property="og:image" content="https://guitar-tuner-fast.com/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Guitar Tuner Fast — Free Online Tuner" />
+  <meta name="twitter:description" content="A fast, accurate and free tuner that runs directly in your browser." />
+  <meta name="twitter:image" content="https://guitar-tuner-fast.com/assets/og-image.png" />
+  <title>Guitar Tuner Fast — Free Online Guitar Tuner</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Guitar Tuner Fast",
+    "applicationCategory":"MusicApplication",
+    "operatingSystem":"Any",
+    "isAccessibleForFree":true,
+    "url":"https://guitar-tuner-fast.com/",
+    "description":"Free online tuner for acoustic guitar, electric guitar, bass and ukulele."
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Guitar Tuner Fast home">
+      <span class="brand-mark" aria-hidden="true">G</span>
+      <span>Guitar Tuner Fast</span>
+    </a>
+    <div class="header-actions">
+      <a class="lang-link" href="/fr/" hreflang="fr" lang="fr">FR</a>
+      <a class="header-link" href="#tuner">Tune now <span aria-hidden="true">↘</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Free online tuner</p>
+        <h1 id="hero-title">Tune your instrument.<br><span>Perfectly in tune.</span></h1>
+        <p class="hero-text">Acoustic guitar, electric guitar, bass or ukulele. Listen to each reference note or use your microphone for fast, accurate automatic tuning.</p>
+        <a class="primary-button" href="#tuner">Start tuning <span>↓</span></a>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="sound-orbit orbit-1"></div>
+        <div class="sound-orbit orbit-2"></div>
+        <div class="headstock-art">
+          <span class="peg peg-l1"></span><span class="peg peg-r1"></span>
+          <span class="peg peg-l2"></span><span class="peg peg-r2"></span>
+          <span class="peg peg-l3"></span><span class="peg peg-r3"></span>
+          <span class="string s1"></span><span class="string s2"></span><span class="string s3"></span>
+          <span class="string s4"></span><span class="string s5"></span><span class="string s6"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="instrument-section" aria-labelledby="instrument-title">
+      <div class="section-heading">
+        <p class="eyebrow">01 — Instrument</p>
+        <h2 id="instrument-title">Choose your instrument</h2>
+      </div>
+      <div class="instrument-grid" role="list">
+        <button class="instrument-card is-active" data-instrument="acoustic" role="listitem">
+          <span class="card-index">01</span>
+          <span class="instrument-icon six" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <strong>Acoustic guitar</strong><small>6 strings · E A D G B E</small>
+        </button>
+        <button class="instrument-card" data-instrument="electric" role="listitem">
+          <span class="card-index">02</span>
+          <span class="instrument-icon six electric" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <strong>Electric guitar</strong><small>6 strings · E A D G B E</small>
+        </button>
+        <button class="instrument-card" data-instrument="bass" role="listitem">
+          <span class="card-index">03</span>
+          <span class="instrument-icon four bass" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <strong>Bass</strong><small>4 strings · E A D G</small>
+        </button>
+        <button class="instrument-card" data-instrument="ukulele" role="listitem">
+          <span class="card-index">04</span>
+          <span class="instrument-icon four uke" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <strong>Ukulele</strong><small>4 strings · G C E A</small>
+        </button>
+      </div>
+    </section>
+
+    <section id="tuner" class="tuner-section" aria-labelledby="tuner-title">
+      <div class="tuner-topline">
+        <div>
+          <p class="eyebrow">02 — Tuner</p>
+          <h2 id="tuner-title">Acoustic guitar</h2>
+        </div>
+        <div class="mode-switch" role="tablist" aria-label="Tuning mode">
+          <button class="mode-button is-active" data-mode="ear" role="tab" aria-selected="true">By ear</button>
+          <button class="mode-button" data-mode="auto" role="tab" aria-selected="false">Microphone</button>
+        </div>
+      </div>
+
+      <div class="tuner-layout">
+        <div class="strings-panel">
+          <div class="string-stage" aria-label="Instrument strings">
+            <div class="stage-centerline" aria-hidden="true"></div>
+            <div id="stringButtons" class="string-buttons"></div>
+          </div>
+          <p class="stage-hint" id="stageHint">Tap a string to hear the reference note.</p>
+        </div>
+
+        <aside class="control-panel">
+          <div id="earPanel" class="mode-panel is-visible">
+            <div class="panel-status">
+              <span class="status-dot"></span>
+              <span>Listening mode</span>
+            </div>
+            <div class="note-display">
+              <span class="note-kicker">Selected note</span>
+              <strong id="selectedNote">E2</strong>
+              <span id="selectedFrequency">82.41 Hz</span>
+            </div>
+            <button id="playSelected" class="secondary-button"><span aria-hidden="true">▶</span> Play note</button>
+            <label class="toggle-row">
+              <span>Repeat note</span>
+              <input id="repeatToggle" type="checkbox" />
+              <span class="toggle-ui" aria-hidden="true"></span>
+            </label>
+          </div>
+
+          <div id="autoPanel" class="mode-panel">
+            <div class="panel-status">
+              <span class="status-dot mic-dot"></span>
+              <span id="micStatusText">Microphone off</span>
+            </div>
+            <div class="meter" aria-label="Tuning accuracy">
+              <div class="meter-scale"><span>-50</span><span>-25</span><span>0</span><span>+25</span><span>+50</span></div>
+              <div class="meter-track"><div id="meterNeedle" class="meter-needle"></div></div>
+              <div class="detected-note"><strong id="detectedNote">—</strong><span id="detectedHz">Play a string</span></div>
+              <div id="tuningMessage" class="tuning-message">Turn on the microphone to start.</div>
+            </div>
+            <button id="micButton" class="secondary-button"><span aria-hidden="true">●</span> Enable microphone</button>
+            <p class="privacy-note">Audio is analyzed only in your browser. No recording is uploaded or sent anywhere.</p>
+          </div>
+
+          <div class="tuning-select-wrap">
+            <label for="tuningSelect">Tuning</label>
+            <select id="tuningSelect"></select>
+            <div id="tuningNotes" class="tuning-notes"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="info-section" aria-labelledby="info-title">
+      <div class="section-heading compact">
+        <p class="eyebrow">03 — How it works</p>
+        <h2 id="info-title">Two ways to tune</h2>
+      </div>
+      <div class="info-grid">
+        <article><span>01</span><h3>By ear</h3><p>Choose a string, play the reference note and adjust your instrument until both pitches match.</p></article>
+        <article><span>02</span><h3>With the microphone</h3><p>Allow microphone access, play one string and follow the meter. The center means the string is in tune.</p></article>
+        <article><span>03</span><h3>Choose a tuning</h3><p>Standard, Drop D, half-step down and several alternative tunings are built in for guitar.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><span class="brand-mark">G</span><strong>Guitar Tuner Fast</strong></div>
+    <p>A simple tool to stay in tune.</p>
+    <span>© <span id="year"></span></span>
+  </footer>
+
+  <noscript><div class="noscript">JavaScript is required to use the audio tuner.</div></noscript>
+  <script src="/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+# Guitar Tuner Fast — static bilingual site
+
+100% static website, ready for GitHub Pages / Cloudflare Pages / Netlify.
+
+## Routes
+- `/` — English version: **Guitar Tuner Fast**
+- `/fr/` — French version: **Accorde Guitare**
+
+## Features
+- Acoustic guitar, electric guitar, bass and ukulele
+- Reference tones generated with the Web Audio API (no external audio files)
+- Automatic microphone tuner with pitch detection
+- Multiple tunings
+- Responsive mobile / desktop design
+- English + French SEO with canonical + hreflang tags
+- 404 pages, sitemap, robots.txt, manifests, favicon and Open Graph images
+- No dependency and no build step
+
+## Deploy
+1. Commit every file and folder at the root of your repository.
+2. Enable GitHub Pages on the main branch, or deploy the repository to any static host.
+3. The production domain is already configured as `https://guitar-tuner-fast.com` in:
+   - `index.html`
+   - `fr/index.html`
+   - `robots.txt`
+   - `sitemap.xml`
+4. Microphone access requires HTTPS. GitHub Pages provides HTTPS automatically.
+
+## Local testing
+Reference tones work when opening `index.html` directly, but microphone access is more reliable through a local HTTPS/server environment.

@@ -1,0 +1,17 @@
+{
+  "name": "Guitar Tuner Fast",
+  "short_name": "Tuner",
+  "description": "Free online tuner for guitar, bass and ukulele.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#11110f",
+  "theme_color": "#11110f",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

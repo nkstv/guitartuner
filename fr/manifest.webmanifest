@@ -1,0 +1,17 @@
+{
+  "name": "Accorde Guitare",
+  "short_name": "Accorde Guitare",
+  "description": "Accordeur en ligne gratuit pour guitare, basse et ukulélé.",
+  "start_url": "/fr/",
+  "display": "standalone",
+  "background_color": "#11110f",
+  "theme_color": "#11110f",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

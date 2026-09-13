@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#11110f" />
+  <meta name="description" content="Accordeur de guitare en ligne gratuit : acoustique, électrique, basse et ukulélé. Accordage à l'oreille ou automatiquement avec le microphone." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://guitar-tuner-fast.com/fr/" />
+  <link rel="alternate" hreflang="en" href="https://guitar-tuner-fast.com/" />
+  <link rel="alternate" hreflang="fr" href="https://guitar-tuner-fast.com/fr/" />
+  <link rel="alternate" hreflang="x-default" href="https://guitar-tuner-fast.com/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/fr/manifest.webmanifest" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:title" content="Accorde Guitare — Accordeur en Ligne" />
+  <meta property="og:description" content="Accorde ta guitare, ta basse ou ton ukulélé à l'oreille ou avec ton microphone." />
+  <meta property="og:url" content="https://guitar-tuner-fast.com/fr/" />
+  <meta property="og:image" content="https://guitar-tuner-fast.com/assets/og-image-fr.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Accorde Guitare — Accordeur en Ligne" />
+  <meta name="twitter:description" content="Un accordeur rapide, précis et gratuit dans ton navigateur." />
+  <meta name="twitter:image" content="https://guitar-tuner-fast.com/assets/og-image-fr.png" />
+  <title>Accorde Guitare — Accordeur de Guitare Gratuit & Précis</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Accorde Guitare",
+    "applicationCategory":"MusicApplication",
+    "operatingSystem":"Any",
+    "isAccessibleForFree":true,
+    "url":"https://guitar-tuner-fast.com/fr/",
+    "description":"Accordeur en ligne pour guitare acoustique, guitare électrique, basse et ukulélé."
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/fr/" aria-label="Accueil Accorde Guitare">
+      <span class="brand-mark" aria-hidden="true">A</span>
+      <span>Accorde Guitare</span>
+    </a>
+    <div class="header-actions">
+      <a class="lang-link" href="/" hreflang="en" lang="en">EN</a>
+      <a class="header-link" href="#accordeur">Accorder maintenant <span aria-hidden="true">↘</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Accordeur en ligne gratuit</p>
+        <h1 id="hero-title">Accorde ton instrument.<br><span>Simplement juste.</span></h1>
+        <p class="hero-text">Guitare acoustique, électrique, basse ou ukulélé. Écoute chaque note ou utilise ton microphone pour un accordage automatique précis.</p>
+        <a class="primary-button" href="#accordeur">Commencer l'accordage <span>↓</span></a>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="sound-orbit orbit-1"></div>
+        <div class="sound-orbit orbit-2"></div>
+        <div class="headstock-art">
+          <span class="peg peg-l1"></span><span class="peg peg-r1"></span>
+          <span class="peg peg-l2"></span><span class="peg peg-r2"></span>
+          <span class="peg peg-l3"></span><span class="peg peg-r3"></span>
+          <span class="string s1"></span><span class="string s2"></span><span class="string s3"></span>
+          <span class="string s4"></span><span class="string s5"></span><span class="string s6"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="instrument-section" aria-labelledby="instrument-title">
+      <div class="section-heading">
+        <p class="eyebrow">01 — Instrument</p>
+        <h2 id="instrument-title">Choisis ce que tu veux accorder</h2>
+      </div>
+      <div class="instrument-grid" role="list">
+        <button class="instrument-card is-active" data-instrument="acoustic" role="listitem">
+          <span class="card-index">01</span>
+          <span class="instrument-icon six" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <strong>Guitare acoustique</strong><small>6 cordes · E A D G B E</small>
+        </button>
+        <button class="instrument-card" data-instrument="electric" role="listitem">
+          <span class="card-index">02</span>
+          <span class="instrument-icon six electric" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <strong>Guitare électrique</strong><small>6 cordes · E A D G B E</small>
+        </button>
+        <button class="instrument-card" data-instrument="bass" role="listitem">
+          <span class="card-index">03</span>
+          <span class="instrument-icon four bass" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <strong>Basse</strong><small>4 cordes · E A D G</small>
+        </button>
+        <button class="instrument-card" data-instrument="ukulele" role="listitem">
+          <span class="card-index">04</span>
+          <span class="instrument-icon four uke" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <strong>Ukulélé</strong><small>4 cordes · G C E A</small>
+        </button>
+      </div>
+    </section>
+
+    <section id="accordeur" class="tuner-section" aria-labelledby="tuner-title">
+      <div class="tuner-topline">
+        <div>
+          <p class="eyebrow">02 — Accordeur</p>
+          <h2 id="tuner-title">Guitare acoustique</h2>
+        </div>
+        <div class="mode-switch" role="tablist" aria-label="Mode d'accordage">
+          <button class="mode-button is-active" data-mode="ear" role="tab" aria-selected="true">À l'oreille</button>
+          <button class="mode-button" data-mode="auto" role="tab" aria-selected="false">Microphone</button>
+        </div>
+      </div>
+
+      <div class="tuner-layout">
+        <div class="strings-panel">
+          <div class="string-stage" aria-label="Cordes de l'instrument">
+            <div class="stage-centerline" aria-hidden="true"></div>
+            <div id="stringButtons" class="string-buttons"></div>
+          </div>
+          <p class="stage-hint" id="stageHint">Appuie sur une corde pour entendre la note de référence.</p>
+        </div>
+
+        <aside class="control-panel">
+          <div id="earPanel" class="mode-panel is-visible">
+            <div class="panel-status">
+              <span class="status-dot"></span>
+              <span>Mode écoute</span>
+            </div>
+            <div class="note-display">
+              <span class="note-kicker">Note sélectionnée</span>
+              <strong id="selectedNote">E2</strong>
+              <span id="selectedFrequency">82.41 Hz</span>
+            </div>
+            <button id="playSelected" class="secondary-button"><span aria-hidden="true">▶</span> Écouter la note</button>
+            <label class="toggle-row">
+              <span>Répéter la note</span>
+              <input id="repeatToggle" type="checkbox" />
+              <span class="toggle-ui" aria-hidden="true"></span>
+            </label>
+          </div>
+
+          <div id="autoPanel" class="mode-panel">
+            <div class="panel-status">
+              <span class="status-dot mic-dot"></span>
+              <span id="micStatusText">Microphone arrêté</span>
+            </div>
+            <div class="meter" aria-label="Précision de l'accordage">
+              <div class="meter-scale"><span>-50</span><span>-25</span><span>0</span><span>+25</span><span>+50</span></div>
+              <div class="meter-track"><div id="meterNeedle" class="meter-needle"></div></div>
+              <div class="detected-note"><strong id="detectedNote">—</strong><span id="detectedHz">Joue une corde</span></div>
+              <div id="tuningMessage" class="tuning-message">Active le microphone pour commencer.</div>
+            </div>
+            <button id="micButton" class="secondary-button"><span aria-hidden="true">●</span> Activer le microphone</button>
+            <p class="privacy-note">Le son est analysé uniquement dans ton navigateur. Aucun audio n'est envoyé.</p>
+          </div>
+
+          <div class="tuning-select-wrap">
+            <label for="tuningSelect">Accordage</label>
+            <select id="tuningSelect"></select>
+            <div id="tuningNotes" class="tuning-notes"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="info-section" aria-labelledby="info-title">
+      <div class="section-heading compact">
+        <p class="eyebrow">03 — Mode d'emploi</p>
+        <h2 id="info-title">Deux façons de t'accorder</h2>
+      </div>
+      <div class="info-grid">
+        <article><span>01</span><h3>À l'oreille</h3><p>Choisis une corde, écoute la note de référence et ajuste ton instrument jusqu'à obtenir la même hauteur.</p></article>
+        <article><span>02</span><h3>Avec le microphone</h3><p>Autorise l'accès au micro, joue une corde et suis l'indicateur. Le centre signifie que la note est juste.</p></article>
+        <article><span>03</span><h3>Choisis ton accordage</h3><p>Standard, Drop D, demi-ton plus bas et plusieurs variantes sont intégrées pour la guitare.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><span class="brand-mark">A</span><strong>Accorde Guitare</strong></div>
+    <p>Un outil simple pour rester juste.</p>
+    <span>© <span id="year"></span></span>
+  </footer>
+
+  <noscript><div class="noscript">JavaScript est nécessaire pour utiliser l'accordeur audio.</div></noscript>
+  <script src="/fr/app.js" defer></script>
+</body>
+</html>
