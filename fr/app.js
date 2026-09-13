@@ -60,7 +60,8 @@
     selectionFeedback: document.getElementById('selectionFeedback'),
     feedbackNote: document.getElementById('feedbackNote'),
     feedbackFrequency: document.getElementById('feedbackFrequency'),
-    tunerSection: document.getElementById('tuner') || document.getElementById('accordeur')
+    tunerSection: document.getElementById('tuner') || document.getElementById('accordeur'),
+    visualStrings: document.getElementById('visualStrings')
   };
 
   let currentInstrument = 'acoustic';
@@ -141,7 +142,19 @@
       return `<button class="string-button ${index===selectedString?'is-selected':''}" data-index="${index}" aria-label="Jouer ${note}" aria-pressed="${index===selectedString}"><strong>${note}</strong><span>${hz} Hz</span></button>`;
     }).join('');
     els.tuningNotes.innerHTML = notes.map(n=>`<span>${n}</span>`).join('');
+    renderVisualStrings(notes);
     updateSelected();
+  }
+
+  function renderVisualStrings(notes){
+    if(!els.visualStrings) return;
+    const count = notes.length;
+    els.visualStrings.classList.remove('strings-4','strings-6');
+    els.visualStrings.classList.add(`strings-${count}`);
+    els.visualStrings.innerHTML = notes.map((note,index)=>{
+      const pos = count === 1 ? 50 : 22 + (56 * index / (count - 1));
+      return `<span class="stage-string ${index===selectedString?'is-selected':''}" data-index="${index}" style="--string-x:${pos}%"><i>${note}</i></span>`;
+    }).join('');
   }
 
   function updateSelected(){
@@ -156,11 +169,30 @@
       button.classList.toggle('is-selected',active);
       button.setAttribute('aria-pressed',String(active));
     });
+    if(els.visualStrings){
+      els.visualStrings.querySelectorAll('.stage-string').forEach((stringEl,index)=>{
+        stringEl.classList.toggle('is-selected',index===selectedString);
+      });
+    }
   }
 
   function scrollToTuner(){
-    if(!els.tunerSection) return;
-    requestAnimationFrame(()=>els.tunerSection.scrollIntoView({behavior:'smooth',block:'start'}));
+    const target = els.tunerSection;
+    if(!target) return;
+    const getTargetY = () => Math.max(0, target.getBoundingClientRect().top + window.scrollY - 18);
+    // Wait for the instrument state/render to finish, then scroll explicitly.
+    requestAnimationFrame(()=>{
+      requestAnimationFrame(()=>{
+        const y = getTargetY();
+        try{ window.scrollTo({top:y,behavior:'smooth'}); }
+        catch(e){ window.scrollTo(0,y); }
+        // Fallback for browsers/embedded views that ignore smooth scroll.
+        setTimeout(()=>{
+          const remaining = Math.abs(target.getBoundingClientRect().top - 18);
+          if(remaining > 90) window.scrollTo(0,getTargetY());
+        },420);
+      });
+    });
   }
 
   function selectInstrument(name){
@@ -299,10 +331,12 @@
     raf = setTimeout(analysePitch, 85);
   }
 
-  document.querySelectorAll('.instrument-card').forEach(btn=>btn.addEventListener('click',()=>{
-    selectInstrument(btn.dataset.instrument);
-    scrollToTuner();
-  }));
+  document.querySelectorAll('.instrument-card').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      selectInstrument(btn.dataset.instrument);
+      scrollToTuner();
+    });
+  });
   document.querySelectorAll('.mode-button').forEach(btn=>btn.addEventListener('click',()=>selectMode(btn.dataset.mode)));
 
   els.stringButtons.addEventListener('click',e=>{

@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="A fast, accurate and free tuner that runs directly in your browser." />
   <meta name="twitter:image" content="https://guitar-tuner-fast.com/assets/og-image.png" />
   <title>Guitar Tuner Fast — Free Online Guitar Tuner</title>
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/styles.css?v=5" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -77,26 +77,26 @@
         <h2 id="instrument-title">Choose your instrument</h2>
       </div>
       <div class="instrument-grid" role="list">
-        <button class="instrument-card is-active" data-instrument="acoustic" role="listitem">
+        <a href="#tuner" class="instrument-card is-active" data-instrument="acoustic" role="listitem">
           <span class="card-index">01</span>
           <span class="instrument-icon six" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
           <strong>Acoustic guitar</strong><small>6 strings · E A D G B E</small>
-        </button>
-        <button class="instrument-card" data-instrument="electric" role="listitem">
+        </a>
+        <a href="#tuner" class="instrument-card" data-instrument="electric" role="listitem">
           <span class="card-index">02</span>
           <span class="instrument-icon six electric" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
           <strong>Electric guitar</strong><small>6 strings · E A D G B E</small>
-        </button>
-        <button class="instrument-card" data-instrument="bass" role="listitem">
+        </a>
+        <a href="#tuner" class="instrument-card" data-instrument="bass" role="listitem">
           <span class="card-index">03</span>
           <span class="instrument-icon four bass" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
           <strong>Bass</strong><small>4 strings · E A D G</small>
-        </button>
-        <button class="instrument-card" data-instrument="ukulele" role="listitem">
+        </a>
+        <a href="#tuner" class="instrument-card" data-instrument="ukulele" role="listitem">
           <span class="card-index">04</span>
           <span class="instrument-icon four uke" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
           <strong>Ukulele</strong><small>4 strings · G C E A</small>
-        </button>
+        </a>
       </div>
     </section>
 
@@ -115,7 +115,7 @@
       <div class="tuner-layout">
         <div class="strings-panel">
           <div class="string-stage" aria-label="Instrument strings">
-            <div class="stage-centerline" aria-hidden="true"></div>
+            <div id="visualStrings" class="stage-centerline" aria-hidden="true"></div>
             <div id="stringButtons" class="string-buttons"></div>
           </div>
           <p class="stage-hint" id="stageHint">Tap a string to hear the reference note.</p>
@@ -187,6 +187,6 @@
   </footer>
 
   <noscript><div class="noscript">JavaScript is required to use the audio tuner.</div></noscript>
-  <script src="/app.js" defer></script>
+  <script src="/app.js?v=5" defer></script>
 </body>
 </html>

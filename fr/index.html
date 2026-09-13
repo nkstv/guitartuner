@@ -24,7 +24,7 @@
   <meta name="twitter:description" content="Un accordeur rapide, précis et gratuit dans ton navigateur." />
   <meta name="twitter:image" content="https://guitar-tuner-fast.com/assets/og-image-fr.png" />
   <title>Accorde Guitare — Accordeur de Guitare Gratuit & Précis</title>
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/styles.css?v=5" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -77,26 +77,26 @@
         <h2 id="instrument-title">Choisis ce que tu veux accorder</h2>
       </div>
       <div class="instrument-grid" role="list">
-        <button class="instrument-card is-active" data-instrument="acoustic" role="listitem">
+        <a href="#accordeur" class="instrument-card is-active" data-instrument="acoustic" role="listitem">
           <span class="card-index">01</span>
           <span class="instrument-icon six" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
           <strong>Guitare acoustique</strong><small>6 cordes · E A D G B E</small>
-        </button>
-        <button class="instrument-card" data-instrument="electric" role="listitem">
+        </a>
+        <a href="#accordeur" class="instrument-card" data-instrument="electric" role="listitem">
           <span class="card-index">02</span>
           <span class="instrument-icon six electric" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
           <strong>Guitare électrique</strong><small>6 cordes · E A D G B E</small>
-        </button>
-        <button class="instrument-card" data-instrument="bass" role="listitem">
+        </a>
+        <a href="#accordeur" class="instrument-card" data-instrument="bass" role="listitem">
           <span class="card-index">03</span>
           <span class="instrument-icon four bass" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
           <strong>Basse</strong><small>4 cordes · E A D G</small>
-        </button>
-        <button class="instrument-card" data-instrument="ukulele" role="listitem">
+        </a>
+        <a href="#accordeur" class="instrument-card" data-instrument="ukulele" role="listitem">
           <span class="card-index">04</span>
           <span class="instrument-icon four uke" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
           <strong>Ukulélé</strong><small>4 cordes · G C E A</small>
-        </button>
+        </a>
       </div>
     </section>
 
@@ -115,7 +115,7 @@
       <div class="tuner-layout">
         <div class="strings-panel">
           <div class="string-stage" aria-label="Cordes de l'instrument">
-            <div class="stage-centerline" aria-hidden="true"></div>
+            <div id="visualStrings" class="stage-centerline" aria-hidden="true"></div>
             <div id="stringButtons" class="string-buttons"></div>
           </div>
           <p class="stage-hint" id="stageHint">Appuie sur une corde pour entendre la note de référence.</p>
@@ -187,6 +187,6 @@
   </footer>
 
   <noscript><div class="noscript">JavaScript est nécessaire pour utiliser l'accordeur audio.</div></noscript>
-  <script src="/fr/app.js" defer></script>
+  <script src="/fr/app.js?v=5" defer></script>
 </body>
 </html>
