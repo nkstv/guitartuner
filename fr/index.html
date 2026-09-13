@@ -46,7 +46,7 @@
     </a>
     <div class="header-actions">
       <a class="lang-link" href="/" hreflang="en" lang="en">EN</a>
-      <a class="header-link" href="#accordeur">Accorder maintenant <span aria-hidden="true">↘</span></a>
+      <a class="header-link" href="#instrument">Accorder maintenant <span aria-hidden="true">↘</span></a>
     </div>
   </header>
 
@@ -56,7 +56,7 @@
         <p class="eyebrow">Accordeur en ligne gratuit</p>
         <h1 id="hero-title">Accorde ton instrument.<br><span>Simplement juste.</span></h1>
         <p class="hero-text">Guitare acoustique, électrique, basse ou ukulélé. Écoute chaque note ou utilise ton microphone pour un accordage automatique précis.</p>
-        <a class="primary-button" href="#accordeur">Commencer l'accordage <span>↓</span></a>
+        <a class="primary-button" href="#instrument">Commencer l'accordage <span>↓</span></a>
       </div>
       <div class="hero-visual" aria-hidden="true">
         <div class="sound-orbit orbit-1"></div>
@@ -71,7 +71,7 @@
       </div>
     </section>
 
-    <section class="instrument-section" aria-labelledby="instrument-title">
+    <section id="instrument" class="instrument-section" aria-labelledby="instrument-title">
       <div class="section-heading">
         <p class="eyebrow">01 — Instrument</p>
         <h2 id="instrument-title">Choisis ce que tu veux accorder</h2>
@@ -119,6 +119,9 @@
             <div id="stringButtons" class="string-buttons"></div>
           </div>
           <p class="stage-hint" id="stageHint">Appuie sur une corde pour entendre la note de référence.</p>
+          <div id="selectionFeedback" class="selection-feedback" aria-live="polite">
+            <span>Corde sélectionnée</span><strong id="feedbackNote">E2</strong><em id="feedbackFrequency">82.41 Hz</em>
+          </div>
         </div>
 
         <aside class="control-panel">

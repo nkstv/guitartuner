@@ -56,12 +56,17 @@
     meterNeedle: document.getElementById('meterNeedle'),
     detectedNote: document.getElementById('detectedNote'),
     detectedHz: document.getElementById('detectedHz'),
-    tuningMessage: document.getElementById('tuningMessage')
+    tuningMessage: document.getElementById('tuningMessage'),
+    selectionFeedback: document.getElementById('selectionFeedback'),
+    feedbackNote: document.getElementById('feedbackNote'),
+    feedbackFrequency: document.getElementById('feedbackFrequency'),
+    tunerSection: document.getElementById('tuner') || document.getElementById('accordeur')
   };
 
   let currentInstrument = 'acoustic';
   let currentTuning = 'Standard';
   let selectedString = 0;
+  let currentMode = 'ear';
   let audioCtx = null;
   let repeatTimer = null;
   let micStream = null;
@@ -133,7 +138,7 @@
     els.stringButtons.className = `string-buttons count-${notes.length}`;
     els.stringButtons.innerHTML = notes.map((note, index) => {
       const hz = noteToFreq(note).toFixed(1);
-      return `<button class="string-button ${index===selectedString?'is-selected':''}" data-index="${index}" aria-label="Play ${note}"><strong>${note}</strong><span>${hz} Hz</span></button>`;
+      return `<button class="string-button ${index===selectedString?'is-selected':''}" data-index="${index}" aria-label="Play ${note}" aria-pressed="${index===selectedString}"><strong>${note}</strong><span>${hz} Hz</span></button>`;
     }).join('');
     els.tuningNotes.innerHTML = notes.map(n=>`<span>${n}</span>`).join('');
     updateSelected();
@@ -141,20 +146,36 @@
 
   function updateSelected(){
     const note = currentNotes()[selectedString];
+    const frequency = `${noteToFreq(note).toFixed(2)} Hz`;
     els.selectedNote.textContent = note;
-    els.selectedFrequency.textContent = `${noteToFreq(note).toFixed(2)} Hz`;
+    els.selectedFrequency.textContent = frequency;
+    if(els.feedbackNote) els.feedbackNote.textContent = note;
+    if(els.feedbackFrequency) els.feedbackFrequency.textContent = frequency;
+    els.stringButtons.querySelectorAll('.string-button').forEach((button,index)=>{
+      const active = index === selectedString;
+      button.classList.toggle('is-selected',active);
+      button.setAttribute('aria-pressed',String(active));
+    });
+  }
+
+  function scrollToTuner(){
+    if(!els.tunerSection) return;
+    requestAnimationFrame(()=>els.tunerSection.scrollIntoView({behavior:'smooth',block:'start'}));
   }
 
   function selectInstrument(name){
     currentInstrument = name;
     currentTuning = Object.keys(INSTRUMENTS[name].tunings)[0];
     selectedString = 0;
+    setRepeat(false);
+    els.repeatToggle.checked = false;
     document.querySelectorAll('.instrument-card').forEach(b=>b.classList.toggle('is-active',b.dataset.instrument===name));
     els.tunerTitle.textContent = INSTRUMENTS[name].title;
     renderTunings();
   }
 
   function selectMode(mode){
+    currentMode = mode;
     document.querySelectorAll('.mode-button').forEach(btn=>{
       const active = btn.dataset.mode===mode;
       btn.classList.toggle('is-active',active);
@@ -163,6 +184,10 @@
     els.earPanel.classList.toggle('is-visible',mode==='ear');
     els.autoPanel.classList.toggle('is-visible',mode==='auto');
     els.stageHint.textContent = mode==='ear' ? "Tap a string to hear the reference note." : "Play a string near the microphone and follow the meter.";
+    if(mode==='auto'){
+      setRepeat(false);
+      els.repeatToggle.checked = false;
+    }
     if(mode==='ear' && micRunning) stopMic();
   }
 
@@ -274,7 +299,10 @@
     raf = setTimeout(analysePitch, 85);
   }
 
-  document.querySelectorAll('.instrument-card').forEach(btn=>btn.addEventListener('click',()=>selectInstrument(btn.dataset.instrument)));
+  document.querySelectorAll('.instrument-card').forEach(btn=>btn.addEventListener('click',()=>{
+    selectInstrument(btn.dataset.instrument);
+    scrollToTuner();
+  }));
   document.querySelectorAll('.mode-button').forEach(btn=>btn.addEventListener('click',()=>selectMode(btn.dataset.mode)));
 
   els.stringButtons.addEventListener('click',e=>{
@@ -282,11 +310,16 @@
     if(!btn) return;
     selectedString=Number(btn.dataset.index);
     updateSelected();
+    const note = currentNotes()[selectedString];
+    const frequency = `${noteToFreq(note).toFixed(2)} Hz`;
     document.querySelectorAll('.string-button').forEach(b=>b.classList.remove('is-playing'));
-    btn.classList.add('is-playing');
-    playNote(currentNotes()[selectedString]);
-    setTimeout(()=>btn.classList.remove('is-playing'),650);
-    if(els.repeatToggle.checked) setRepeat(true);
+    if(currentMode==='ear'){
+      btn.classList.add('is-playing');
+      playNote(note);
+      els.stageHint.textContent = `${note} selected · ${frequency} — reference note playing.`;
+      setTimeout(()=>btn.classList.remove('is-playing'),650);
+      if(els.repeatToggle.checked) setRepeat(true);
+    }
   });
 
   els.playSelected.addEventListener('click',()=>playNote(currentNotes()[selectedString]));
@@ -296,6 +329,7 @@
     selectedString=0;
     setRepeat(false); els.repeatToggle.checked=false;
     renderStrings();
+    if(currentMode==='ear') els.stageHint.textContent = "Tap a string to hear the reference note.";
   });
   els.micButton.addEventListener('click',()=>micRunning?stopMic():startMic());
   document.addEventListener('visibilitychange',()=>{ if(document.hidden && micRunning) stopMic(); });
