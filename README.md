@@ -38,3 +38,9 @@ Reference tones work when opening `index.html` directly, but microphone access i
 
 ## Tuning guides
 Added 4 English guides and 4 French equivalents, all cross-linked and included in sitemap.xml.
+
+## Privacy policy
+
+Chrome Web Store privacy policy URL:
+- English: https://guitar-tuner-fast.com/privacy/
+- French: https://guitar-tuner-fast.com/fr/confidentialite/
