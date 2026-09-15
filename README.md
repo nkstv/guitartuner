@@ -44,3 +44,8 @@ Added 4 English guides and 4 French equivalents, all cross-linked and included i
 Chrome Web Store privacy policy URL:
 - English: https://guitar-tuner-fast.com/privacy/
 - French: https://guitar-tuner-fast.com/fr/confidentialite/
+
+
+## Chrome extension landing pages
+- EN: https://guitar-tuner-fast.com/chrome-extension-guitar-tuner/
+- FR: https://guitar-tuner-fast.com/fr/extension-chrome-accordeur-guitare/

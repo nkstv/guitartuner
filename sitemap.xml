@@ -91,6 +91,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://guitar-tuner-fast.com/chrome-extension-guitar-tuner/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guitar-tuner-fast.com/chrome-extension-guitar-tuner/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://guitar-tuner-fast.com/fr/extension-chrome-accordeur-guitare/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guitar-tuner-fast.com/chrome-extension-guitar-tuner/" />
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://guitar-tuner-fast.com/fr/extension-chrome-accordeur-guitare/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://guitar-tuner-fast.com/chrome-extension-guitar-tuner/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://guitar-tuner-fast.com/fr/extension-chrome-accordeur-guitare/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://guitar-tuner-fast.com/chrome-extension-guitar-tuner/" />
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://guitar-tuner-fast.com/privacy/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://guitar-tuner-fast.com/privacy/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://guitar-tuner-fast.com/fr/confidentialite/" />
